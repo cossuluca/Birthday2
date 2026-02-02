@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Meine Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f5f2;
+            color: #333;
+            overflow-x: hidden; /* Verhindert seitliches Wackeln am Handy */
+        }
+
+        .page {
+            display: none; 
+            min-height: 100vh;
+            padding: 20px; /* Weniger Abstand am Rand für Mobile */
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        h1 { 
+            margin-bottom: 20px; 
+            font-size: 1.6em; /* Skalierte Größe für Mobile */
+        }
+
+        p { 
+            max-width: 600px; 
+            font-size: 1.1em; 
+            line-height: 1.6; 
+            width: 100%; 
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap; /* Buttons knicken um, wenn es zu eng wird */
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            transition: transform 0.2s;
+            min-width: 140px; /* Damit Buttons gut klickbar sind */
+        }
+
+        button:hover {
+            opacity: 0.85;
+            transform: scale(1.05);
+        }
+
+        .secondary-btn {
+            background-color: #888;
+        }
+
+        /* BILDER OPTIMIERUNG */
+        img { 
+            max-width: 90%; /* Bild nimmt nie mehr als 90% der Breite ein */
+            height: auto;   /* Höhe passt sich automatisch an */
+            max-height: 40vh; /* Bild wird nie höher als 40% des Bildschirms */
+            margin: 20px 0;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        /* ANPASSUNG FÜR DESKTOP (Größere Monitore) */
+        @media (min-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .page { padding: 40px; }
+            img { max-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- =========================
+     SEITE Einführung
+     ========================= -->
+
+<div class="page active">
+    <h1>Hallo meine Maus</h1>
+    <p>Ungewöhnlich einfach nur einen QR-Code geschenkt zu bekommen, oder?</p>
+    <button onclick="nextPage()">Ach mann, was kommt denn jetzt?</button>
+</div>
+
+<!-- =========================
+     SEITE goldene Klobürste
+     ========================= -->
+
+<div class="page">
+    <h1>Bekommst du vielleicht eine...?</h1>
+    <img src="51IGK27xXDL._AC_UF894,1000_QL80_.jpg" alt="...goldene Klobürste">
+    <p>...goldene Klobürste?</p>
+    <div class="button-group">
+        <button onclick="goToWrongPage()">Oh ja bitte!</button>
+        <button onclick="nextPage()" class="secondary-btn">Nein</button>
+    </div>
+</div>
+
+<!-- =========================
+     SEITE Katzenspitzer
+     ========================= -->
+
+<div class="page">
+    <h1>...oder vielleicht...</h1>
+    <img src="katzenspitzer_800x500.jpg" alt="">
+    <p>...einen Katzenspitzer?</p>
+    <div class="button-group">
+        <button onclick="goToWrongPage()">Den will ich!</button>
+        <button onclick="nextPage()" class="secondary-btn">Nein, wer braucht das</button>
+    </div>
+</div>
+
+<!-- =========================
+     SEITE Errorpage
+     ========================= -->
+
+<div id="wrong-page" class="page">
+    <h1>Ach Quatsch meine Maus!</h1>
+    <p>Das braucht doch kein Mensch... probier's nochmal! 😂</p>
+    <button onclick="tryAgain()">Na gut, weiter geht's</button>
+</div>
+
+<!-- =========================
+     SEITE Babykuh
+     ========================= -->
+
+<div class="page">
+    <h1>...wieder nicht. Okay jetzt weiß ich's!</h1>
+    <img src="Babykuh.jpeg" alt="">
+    <p>Du wolltest eine süße Babykuh! 🐄</p>
+    <button onclick="nextPage()">Jaaaaa!</button>
+</div>
+
+<!-- =========================
+     SEITE Babykuh ich auch
+     ========================= -->
+
+<div class="page">
+    <h1>Okay erwischt, ich auch!</h1>
+    <p>Aber die passt ja leider nicht in unsere Wohnung ;)</p>
+    <button onclick="nextPage()">Okay, hast ja recht</button>
+</div>
+
+<!-- =========================
+     SEITE Buildup echtes Geschenk
+     ========================= -->
+
+<div class="page">
+    <h1>Na gut, bist du bereit für dein wirkliches Geschenk?</h1>
+    <button onclick="nextPage()">Jaaa</button>
+</div>
+
+<!-- =========================
+     SEITE Geburtstagskarte
+     ========================= -->
+
+<div class="page">
+    <h1>Okay, einmal musst du noch kurz warten</h1>
+    <p>
+        Ich weiß wir haben gesagt wir schreiben keine Karten, aber technically ist das ja ne website :) Ich wünsche dir Alles alles liebe zum Geburtstag, du bist der tollste Mensch den ich kennelernen durfte und ich freu mich darauf das nächste und alle weiteren Jahre die wir zusammen verbringen werden. Bleib so wie du bist, ich liebe dich ❤️
+    </p>
+    <button onclick="nextPage()">Schluss mit Kitsch</button>
+</div>
+
+<!-- =========================
+     SEITE Weiter zum Geschenk
+     ========================= -->
+
+<div class="page">
+    <h1>Was bekomm ich denn nun jetzt?</h1>
+    <p>Trommelwirbel...</p>
+    <button onclick="nextPage()">Show me!</button>
+</div>
+
+<!-- =========================
+     SEITE Geschenk
+     ========================= -->
+
+<div class="page">
+    <h1>Wir gehen gemeinsam nach einem Ring schauen! 💍</h1>
+    <p>
+        Ich weiß, dass du gerne wieder einen Ring hättest. Da ich dir einen schönen (und etwas hochwertigeren) 
+        Ring schenken will, der dich als Glücksbringer durch den Alltag begleitet, dachte ich mir, 
+        wir gehen ihn zusammen aussuchen. Happy Birthday meine Maus 😘
+    </p>
+</div>
+
+<script>
+    // Wir wählen alle Seiten aus, außer der Error-Page
+    const pages = document.querySelectorAll(".page:not(#wrong-page)");
+    const wrongPage = document.getElementById("wrong-page");
+    let currentPage = 0;
+
+    // Normales Vorwärtsblättern
+    function nextPage() {
+        if (currentPage < pages.length - 1) {
+            pages[currentPage].classList.remove("active");
+            currentPage++;
+            pages[currentPage].classList.add("active");
+        }
+    }
+
+    // Zur Error-Page wechseln
+    function goToWrongPage() {
+        pages[currentPage].classList.remove("active");
+        wrongPage.classList.add("active");
+    }
+
+    // Zurück zur URSPRÜNGLICHEN Seite (ohne den Counter zu erhöhen)
+    function tryAgain() {
+        wrongPage.classList.remove("active");
+        // Wir zeigen einfach wieder die Seite an, bei der wir gerade stehen geblieben sind
+        pages[currentPage].classList.add("active");
+    }
+</script>
+
+</body>
+</html>
