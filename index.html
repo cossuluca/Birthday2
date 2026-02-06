@@ -109,7 +109,7 @@
     <img src="Badminton.gif" alt="">
     <p>...Badminton spielen?</p>
     <div class="button-group">
-        <button onclick="goToWrongPage()">Jaaa</button>
+        <button onclick="goToWrongPage('error-badminton')">Jaaa</button>
         <button onclick="nextPage()" class="secondary-btn">Nein</button>
     </div>
 </div>
@@ -122,7 +122,7 @@
     <h1>...oder schauen wir vielleicht ein Rennen an?</h1>
     <img src="Racing.gif" alt="">
     <div class="button-group">
-        <button onclick="goToWrongPage()">Jaa, am besten Formel 1!</button>
+        <button onclick="goToWrongPage('error-racing')">Jaa, am besten Formel 1!</button>
         <button onclick="nextPage()" class="secondary-btn">Neeee</button>
     </div>
 </div>
@@ -131,7 +131,7 @@
      SEITE Errorpage Badminton
      ========================= -->
 
-<div id="wrong-page" class="page">
+<div id="error-badminton" class="page">
     <h1>Nee meine Maus</h1>
     <p> Das spielen wir einfach so mal :)</p>
     <button onclick="tryAgain()">Okelidokeli 🥰</button>
@@ -140,7 +140,7 @@
      SEITE Errorpage Autorennen
      ========================= -->
 
-<div id="wrong-page" class="page">
+<div id="error-racing" class="page">
     <h1>Ach Quatsch meine Maus!</h1>
      <img src="Phew.gif" alt="">
     <p> Das is doch so n Luca Ding  </p>
@@ -217,32 +217,30 @@
 </div>
 
 <script>
-    // Wir wählen alle Seiten aus, außer der Error-Page
-    const pages = document.querySelectorAll(".page:not(#wrong-page)");
-    const wrongPage = document.getElementById("wrong-page");
-    let currentPage = 0;
+    const pages = document.querySelectorAll(".page");
+let currentPage = 0;
+let activeErrorPage = null;
 
-    // Normales Vorwärtsblättern
-    function nextPage() {
-        if (currentPage < pages.length - 1) {
-            pages[currentPage].classList.remove("active");
-            currentPage++;
-            pages[currentPage].classList.add("active");
-        }
-    }
+function nextPage() {
+    pages[currentPage].classList.remove("active");
+    currentPage++;
+    pages[currentPage].classList.add("active");
+}
 
-    // Zur Error-Page wechseln
-    function goToWrongPage() {
-        pages[currentPage].classList.remove("active");
-        wrongPage.classList.add("active");
-    }
+function goToWrongPage(errorId) {
+    pages[currentPage].classList.remove("active");
+    activeErrorPage = document.getElementById(errorId);
+    activeErrorPage.classList.add("active");
+}
 
-    // Zurück zur URSPRÜNGLICHEN Seite (ohne den Counter zu erhöhen)
-    function tryAgain() {
-        wrongPage.classList.remove("active");
-        // Wir zeigen einfach wieder die Seite an, bei der wir gerade stehen geblieben sind
-        pages[currentPage].classList.add("active");
+function tryAgain() {
+    if (activeErrorPage) {
+        activeErrorPage.classList.remove("active");
+        activeErrorPage = null;
     }
+    pages[currentPage].classList.add("active");
+}
+
 </script>
 
 </body>
