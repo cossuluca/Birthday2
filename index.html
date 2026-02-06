@@ -93,7 +93,7 @@
      SEITE Einführung
      ========================= -->
 
-<div class="page active">
+<div class="page story-page">
     <h1>Hallo meine Maus</h1>
     <p>Ungewöhnlich einfach nur einen QR-Code geschenkt zu bekommen, oder?</p>
     <img src="Confused.gif" alt="">
@@ -104,7 +104,7 @@
      Badminton
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>Gehen wir vielleicht...?</h1>
     <img src="Badminton.gif" alt="">
     <p>...Badminton spielen?</p>
@@ -118,7 +118,7 @@
      Autorennen
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>...oder schauen wir vielleicht ein Rennen an?</h1>
     <img src="Racing.gif" alt="">
     <div class="button-group">
@@ -152,7 +152,7 @@
      SEITE Babykuh
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>...wieder nicht. Okay jetzt weiß ich's!</h1>
     <img src="Babykuh.jpeg" alt="">
     <p>Du wolltest eine süße Babykuh! 🐄</p>
@@ -163,7 +163,7 @@
      SEITE Babykuh ich auch
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>Okay erwischt, ich auch!</h1>
     <img src="Sad.gif" alt="">
     <p>Aber die passt ja leider nicht in unsere Wohnung...</p>
@@ -174,7 +174,7 @@
      SEITE Buildup echtes Geschenk
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>Na gut, bist du bereit für dein wirkliches Geschenk?</h1>
     <button onclick="nextPage()">Jaaa</button>
 </div>
@@ -183,7 +183,7 @@
      SEITE Geburtstagskarte
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>Okay, einmal musst du noch kurz warten</h1>
       <img src="I_Love_You.gif" alt="">
     <p>
@@ -196,7 +196,7 @@
      SEITE Weiter zum Geschenk
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>Was bekomm ich denn nun jetzt?</h1>
     <img src="DrumRoll.gif" alt="">
     <button onclick="nextPage()">Show me!</button>
@@ -206,7 +206,7 @@
      SEITE Geschenk
      ========================= -->
 
-<div class="page">
+<div class="page story-page">
     <h1>Wir gehen gemeinsam nach einem Ring schauen! 💍</h1>
     <img src="Ring.gif" alt="">
     <p>
@@ -217,7 +217,7 @@
 </div>
 
 <script>
-    const pages = document.querySelectorAll(".page");
+   const pages = document.querySelectorAll(".story-page");
 let currentPage = 0;
 let activeErrorPage = null;
 
